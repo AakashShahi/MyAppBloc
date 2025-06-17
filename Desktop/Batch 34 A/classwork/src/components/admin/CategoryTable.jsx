@@ -1,6 +1,7 @@
 import React from 'react'
 import { useAdminCategory } from '../../hooks/admin/useAdminCategory'
 import { getBackendImageUrl } from '../../utils/backend-image'
+import { Link } from 'react-router-dom'
 
 
 export default function CategoryTable() {
@@ -13,6 +14,7 @@ export default function CategoryTable() {
                     <tr>
                         <td>Name</td>
                         <td>Image</td>
+                        <td>Actions</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -26,6 +28,17 @@ export default function CategoryTable() {
                                             src={getBackendImageUrl(row.filepath)}
                                         ></img>
                                     </td>
+                                    <td>
+                                        <Link to={"/admin/category/" + row._id}>
+                                            <button>View</button>
+                                        </Link>
+
+                                        <Link to={"/admin/category/" + row._id + "/edit"}>
+                                            <button>Edit</button>
+                                        </Link>
+                                    </td>
+
+
                                 </tr>
                         )
                     }

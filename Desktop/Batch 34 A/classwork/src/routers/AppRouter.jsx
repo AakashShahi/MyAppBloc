@@ -13,6 +13,8 @@ import UserManagement from '../pages/admin/UserManagement'
 import ProductManagemnt from '../pages/admin/ProductManegment'
 import CategoryManagement from '../pages/admin/CategoryManagement'
 import CreateCategory from '../pages/admin/CreateCategory'
+import ViewCategory from '../pages/admin/ViewCategory'
+import UpdateCategory from '../pages/admin/UpdateCategory'
 
 export default function AppRouter() {
   return (
@@ -40,7 +42,9 @@ export default function AppRouter() {
         <Route path='/admin/*' element={<AdminUserRoute />}>
           <Route path="dashboard" element={<>Admin Dashboard</>}></Route>
           <Route path="categories" element={<CategoryManagement />}></Route>
+          <Route path="category/:id" element={<ViewCategory />}></Route>
           <Route path="categories/create" element={<CreateCategory />}></Route>
+          <Route path="category/:id/edit" element={<UpdateCategory />}></Route>
           <Route path="products" element={<ProductManagemnt />}></Route>
           <Route path="*" element={<>404 ghar jaa</>}></Route>
           <Route path="users" element={<UserManagement />}></Route>
